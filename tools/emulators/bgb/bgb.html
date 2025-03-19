@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<h2>BGB version 1.6.3</h2>
+<h2>BGB version 1.6.4</h2>
 
 <b>homepage: </b><a href="https://bgb.bircd.org/">https://bgb.bircd.org/</a><br>
 <b>email: </b>bgb at bircd dot org
@@ -386,7 +386,7 @@ CPU registers: AF, BC, DE, HL, SP, PC, B, C, D, E, H, L, A, ZERO, ZF, Z, CARRY, 
 other state values: ROMBANK, XRAMBANK, SRAMBANK, WRAMBANK, VRAMBANK, TOTALCLKS, LASTCLKS, CLKS2VBLANK<p>
 These values can also be evaluated by using the menu, <i>"Debug"</i>, <i>"Evaluate expression"</i>.<p>
 
-In debug messages and expressions, VALUE is the value currently being read or written (useful when logging debug messages on watchpoints)<p>
+In debug messages and expressions, VALUE is the value currently being read or written and TARGET is the address (useful when logging debug messages on watchpoints)<p>
 
 The unit of all "clocks" values is 1 nop in doublespeed mode, or about 0.5 microseconds. Clocks values are, like all other numerical values, in hexadecimal. The expression "ZEROCLKS" will reset the counter for LASTCLKS. TOTALCLKS is the same value as the clocks counter ("internal divider") in the IO map.<p>
 
@@ -434,6 +434,7 @@ All -params also work as --param.
 </li><li><b><i>-ab</i></b> alias for -wp (compatibility with older BGB)
 </li><li><b><i>-watch</i></b> automatically reload rom when it changes on disk
 </li><li><b><i>-watchnoreset</i></b> automatically reload rom, without resetting the gameboy, when it changes on disk
+</li><li><b><i>-zipnocrc32</i></b> skip crc32 check when loading ZIP or GZIP files
 </li></ul>
 
 BGB will exit with an exit code of 1 in case of an error, and 0 for normal termination. Sadly, console output is not currently possible (console can't be programmatically enabled or disabled).
@@ -539,6 +540,15 @@ BGB as of 1.5.7 has correct TID (trainer ID) in pokemon games, on GBC and GBA, w
 As of 1.5.8, hard resets (pressing the reset key, * by default), will be recorded and played back in demos. A demo can be recorded during a speedrun, and played back later in non-speedrun mode, as long as all platform settings are the same (choice of platform, GBA, GB player, bootroms), and the BGB version is the same.
 
 <h3 id="history">version history:</h3>
+
+<b>1.6.4 (2024-08-31)</b> 
+<ul><li>Fixed many bugs and problems
+</li><li>Accuracy improvements
+</li><li>Emulating GDMA conflict and improved inaccessible VRAM break for this
+</li><li>Speed optimizations
+</li><li>GBC reality colors: cyan was a bit too dark
+</li><li>Recovery save state can now also be saved if another ROM is loaded or BGB is closed.
+</li></ul>
 
 <b>1.6.3 (2024-05-05)</b> 
 <ul><li>Added "MGB reality" (gameboy pocket) colorscheme and frame blend and doubler, and setting to automatically switch between DMG and MGB colorscheme and border
