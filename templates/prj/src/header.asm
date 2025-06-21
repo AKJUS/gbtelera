@@ -60,9 +60,10 @@ SECTION "Header", ROM0[$100]
 
    ;;--------------------------------------
    ;;-- CGB Flag (Color GameBoy)
+   ;;    $00 (DMG1 - Monochrome GB)
    ;;    $80 (CGB but Backwards compatible)
    ;;    $C0 (CGB Only)
-   db $80   ;; Compatible
+   db $00   ;; DMG1 - Monochrome
 
    ;;--------------------------------------
    ;;-- New licensee code ($0144-$0145, 2 bytes)
