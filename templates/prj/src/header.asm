@@ -112,9 +112,10 @@ SECTION "Header", ROM0[$100]
    ;;--------------------------------------
    ;;-- Header Checksum ($014D, 1 byte)
    ;;    rgbfix will calculate it
-   db $EE   ;; Padding placeholder (Could be any byte. It will be overwritten)
-
+   db $00   ;; Padding placeholder. Could be any byte. It will be overwritten.
+            ;; However, if different from 0, a warning will be issued when overwritten
    ;;--------------------------------------
    ;;-- Global Checksum ($014E-$014F, 2 bytes)
    ;;    rgbfix will calculate it
-   db $DE, $AD ;; Padding placeholder (Could be any byte. It will be overwritten)
+   db $00, $00 ;; Padding placeholders. Could be any values. They will be overwritten.
+               ;; If different from 0, a warning will be issued when overwritten
